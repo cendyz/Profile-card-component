@@ -1,0 +1,100 @@
+@use "./utilities/reset";
+@use "./utilities/mixins" as mixins;
+
+:root {
+	--dark-grayish-blue: hsl(227, 10%, 46%);
+	--dark-cyan: hsl(185, 75%, 39%);
+	--very-dark-desaturated-blue: hsl(229, 23%, 23%);
+	--white: hsl(0, 0%, 100%);
+	--dark-gray: hsl(0, 0%, 59%);
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-size: 18px;
+	font-family: "Kumbh Sans", sans-serif;
+	background-color: var(--dark-cyan);
+	background-image: url("../img/bg-pattern-bottom.svg"), url("../img/bg-pattern-top.svg");
+	background-size: 110%, 110%;
+	background-position: 10em 23em, -10em -11em;
+	background-repeat: no-repeat, no-repeat;
+}
+
+.card {
+	position: relative;
+	background-color: var(--white);
+	width: 90%;
+	max-width: 300px;
+	border-radius: 0.6em;
+	text-align: center;
+	overflow: hidden;
+	z-index: -2;
+
+	&__img {
+		width: 100%;
+		background-color: tomato;
+		z-index: -1;
+	}
+
+	&__photo {
+		display: block;
+		position: absolute;
+		left: 50%;
+		top: 18%;
+		width: 35%;
+		max-width: 120px;
+		margin-bottom: 0.5em;
+		transform: translateX(-50%);
+		border-radius: 50%;
+		border: 0.4em solid var(--white);
+	}
+
+	&__box {
+		padding-top: 3em;
+
+		hr {
+			border: none;
+			height: 1px;
+			background-color: hsla(0, 0%, 59%, 0.3);
+		}
+	}
+
+	&__name {
+		font-size: 2rem;
+		margin-bottom: 0.3em;
+
+		span {
+			font-weight: 400;
+			color: var(--dark-gray);
+			letter-spacing: 1px;
+		}
+	}
+
+	&__city {
+		margin-bottom: 1.8em;
+		font-size: 1.4rem;
+		color: var(--dark-gray);
+	}
+
+	&__socials {
+		padding: 1.5em 1.5em;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 2em;
+	}
+
+	&__social {
+		&-number {
+			font-size: 1.8rem;
+			font-weight: bold;
+		}
+		&-name {
+			margin-top: 0.5em;
+			font-size: 0.8rem;
+			letter-spacing: 2px;
+		}
+	}
+}
